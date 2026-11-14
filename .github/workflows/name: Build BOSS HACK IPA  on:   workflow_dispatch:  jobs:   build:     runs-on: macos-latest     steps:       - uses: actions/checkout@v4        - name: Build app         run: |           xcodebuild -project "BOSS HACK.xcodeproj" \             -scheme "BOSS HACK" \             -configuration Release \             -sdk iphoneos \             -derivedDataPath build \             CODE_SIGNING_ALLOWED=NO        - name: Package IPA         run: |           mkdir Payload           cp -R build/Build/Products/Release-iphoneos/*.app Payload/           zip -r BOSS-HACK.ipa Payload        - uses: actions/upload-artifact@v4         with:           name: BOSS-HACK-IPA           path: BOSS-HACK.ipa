@@ -1,0 +1,30 @@
+name: Build BOSS HACK IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build app
+        run: |
+          xcodebuild -project "BOSS HACK.xcodeproj" \
+            -scheme "BOSS HACK" \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Package IPA
+        run: |
+          mkdir Payload
+          cp -R build/Build/Products/Release-iphoneos/*.app Payload/
+          zip -r BOSS-HACK.ipa Payload
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BOSS-HACK-IPA
+          path: BOSS-HACK.ipa
