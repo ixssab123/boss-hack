@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#111"><title>BOSS HACK V6</title>
+<style>
+:root{--accent:#ffffff;--panel:rgba(255,255,255,.27);--line:rgba(255,255,255,.58);--ink:#111}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#000 center/cover fixed no-repeat}
+body:before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.18);z-index:-1}
+.wrap{max-width:440px;margin:auto;min-height:100vh;padding:17px 14px 30px}
+.top{display:flex;align-items:center;justify-content:space-between;margin:5px 3px 16px}
+.brand{font-weight:950;letter-spacing:2px;font-size:25px;color:#fff;text-shadow:0 2px 9px #000b}.sub{font-size:10px;color:white;letter-spacing:2px;margin-top:3px;text-shadow:0 1px 5px #000}
+.avatar{width:49px;height:49px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 12px #0005}
+.glass{background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 7px 24px #0002}
+.hero{border-radius:19px;padding:17px;margin-bottom:13px}.eyebrow{font-size:10px;letter-spacing:2px;font-weight:850}.hero h1{font-size:22px;margin:7px 0 4px}.hero p{font-size:12px;margin:0}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-bottom:13px}
+button{font-family:inherit;cursor:pointer}.tab,.action{min-width:0;white-space:normal;border:1px solid var(--line);background:rgba(255,255,255,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:12px;padding:12px 3px;font-size:11px;font-weight:850;color:#111;transition:transform .12s,background .15s}
+button:active{transform:scale(.96)}.tab.active,.action.active{background:rgba(255,255,255,.82);border-color:#fff}
+.section{border-radius:17px;padding:14px;margin-bottom:10px}.head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}.title{font-size:13px;font-weight:900}.pill{font-size:9px;font-weight:800;background:#ffffff88;padding:5px 8px;border-radius:20px}
+.item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid rgba(255,255,255,.5)}.item:first-of-type{border-top:0}
+.name{font-size:13px;font-weight:750}.desc{font-size:10px;color:#333;margin-top:3px}
+input[type=checkbox]{display:none}.switch{width:40px;height:23px;border-radius:20px;background:#0003;padding:3px;display:block;flex:none;border:1px solid #ffffff88}.switch:after{content:"";display:block;width:17px;height:17px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:.18s}input:checked+.switch{background:#111b}input:checked+.switch:after{transform:translateX(16px)}
+.range{width:46%;accent-color:#111}.value{font-size:11px;font-weight:850;min-width:34px;text-align:right}
+.action{padding:9px 12px;font-size:10px}
+.colorrow{display:flex;align-items:center;gap:9px}.colorrow input{width:34px;height:30px;border:0;background:none;padding:0}
+.catalog{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.skin-card{border:1px solid rgba(255,255,255,.62);background:rgba(255,255,255,.28);border-radius:14px;padding:9px;text-align:left;color:#111;min-width:0;transition:transform .12s,border .12s}.skin-card:active{transform:scale(.97)}.skin-card.selected{border:2px solid #111;background:rgba(255,255,255,.72)}.skin-art{height:78px;border-radius:10px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,#25233b,#9872b8 55%,#e5c6f4)}.skin-art.gold{background:linear-gradient(135deg,#3b2c10,#c79b38,#fff0a4)}.skin-art.red{background:linear-gradient(135deg,#32131b,#b62e46,#f2a2a7)}.skin-art.blue{background:linear-gradient(135deg,#101d38,#2868a7,#9bd8ef)}.skin-art.green{background:linear-gradient(135deg,#112b24,#3d9873,#c5e8a2)}.skin-art img{width:100%;height:100%;object-fit:cover;display:block}.skin-shape{font-size:34px;filter:drop-shadow(0 4px 3px #0006)}.skin-name{font-size:12px;font-weight:900}.skin-type{font-size:9px;color:#444;margin-top:3px}.selected-label{font-size:10px;color:#222;margin-top:10px}.footer{text-align:center;color:#fff;text-shadow:0 1px 5px #000;font-size:9px;letter-spacing:1.4px;margin:14px 0}
+.overlay{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:20px;z-index:5}.overlay.show{display:flex}.modal{width:100%;max-width:360px;border-radius:19px;padding:18px}.modal h2{font-size:17px;margin:0 0 9px}.modal p{font-size:12px;line-height:1.45}.modal .action{margin-top:7px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#111;color:white;padding:10px 15px;border-radius:20px;font-size:11px;opacity:0;transition:opacity .2s;pointer-events:none}.toast.show{opacity:1}
+
+/* BOSS HACK 1.6 — landscape black redesign */
+:root{--ink:#f5f5f5;--panel:#111;--line:#303030;--accent:#fff}
+html,body{background:#000!important;color:#f5f5f5!important}
+body{background-image:none!important}
+.wrap{max-width:1180px!important;min-height:100vh;padding:14px 22px 24px!important}
+.top{margin:0 0 10px!important;padding:7px 4px; border-bottom:1px solid #252525}
+.brand{color:#fff!important;letter-spacing:3px}
+.sub{color:#777!important}
+.avatar.boss-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+ border-radius:9px;background:#171717;border:1px solid #444;color:#fff;font-weight:900;font-size:17px;
+ box-shadow:none}
+.hero{background:#090909!important;border:1px solid #252525!important;border-radius:12px!important;
+ padding:12px 16px!important;margin-bottom:10px!important;color:#fff!important}
+.hero h1,.hero p,.hero .eyebrow{color:#fff!important}
+.hero h1{font-size:20px!important;margin:4px 0}
+.hero p{color:#888!important;margin:0}
+.tabs{display:flex!important;flex-wrap:wrap;gap:8px!important;margin-bottom:12px!important}
+.tab{flex:1 1 100px;background:#101010!important;color:#aaa!important;border:1px solid #292929!important;
+ border-radius:8px!important;min-height:38px}
+.tab.active,.action.active{background:#f0f0f0!important;color:#080808!important;border-color:#fff!important}
+.glass,.panel,.card,.section,.modal{background:#0c0c0c!important;border:1px solid #292929!important;
+ color:#f5f5f5!important;box-shadow:none!important}
+.skin-card{background:#0d0d0d!important;border:1px solid #292929!important;color:#fff!important}
+.skin-card.selected{border-color:#fff!important;background:#191919!important}
+.skin-name,.skin-type{color:#eee!important}
+.skin-type{opacity:.62}
+button,input,select{accent-color:#fff}
+input[type=range]{accent-color:#fff}
+@media (orientation:landscape) and (min-width:650px){
+ .wrap{max-width:1280px!important;padding:12px 24px 18px!important}
+ .top{display:flex;align-items:center}
+ .hero{display:flex;align-items:center;justify-content:space-between;gap:18px}
+ .hero h1{font-size:19px!important}
+ .tabs{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important}
+}
+@media (max-width:700px) and (orientation:landscape){
+ .wrap{padding:8px 12px 14px!important}
+ .hero{padding:8px 12px!important}
+ .hero h1{font-size:16px!important}
+ .tabs{grid-template-columns:repeat(7,minmax(0,1fr))!important}
+ .tab{min-width:0!important;padding:7px 3px!important;font-size:11px!important}
+}
+
+
+.skin-art{height:96px!important;background:#151515!important;border:1px solid #303030}
+.skin-fallback{display:flex;align-items:center;justify-content:center;width:100%;height:100%;
+ font-size:54px;line-height:1;filter:drop-shadow(0 5px 5px #000)}
+.skin-card{background:#0d0d0d!important}
+.skin-name{color:#fff!important}
+.skin-type{color:#aaa!important}
+.footer{color:#fff!important;font-size:11px!important;font-weight:900!important;
+ letter-spacing:1.8px!important;margin:22px 0 8px!important;padding:12px 4px!important;
+ border-top:1px solid #292929;text-shadow:none!important}
+
+
+.esp-preview{display:flex;align-items:center;justify-content:center;gap:18px;padding:14px;margin:8px 0 10px;border:1px solid #292929;border-radius:10px;background:#080808}
+.esp-player{position:relative;width:78px;height:118px;border:2px solid #f5f5f5;border-radius:5px;display:flex;align-items:center;justify-content:center}
+.esp-player:before{content:"";position:absolute;top:12px;width:22px;height:22px;border:2px solid #aaa;border-radius:50%;background:#222}
+.esp-player:after{content:"";position:absolute;top:40px;width:34px;height:42px;border:2px solid #aaa;border-radius:7px;background:#1b1b1b;box-shadow:-13px 30px 0 -9px #888,13px 30px 0 -9px #888}
+.esp-player-label{position:absolute;top:-19px;left:0;font-size:9px;color:#aaa;white-space:nowrap}
+.subsection{margin-top:12px;padding-top:10px;border-top:1px solid #292929}
+.subsection-title{font-size:12px;font-weight:900;letter-spacing:.7px;margin:0 0 4px;color:#fff}
+.box-button{min-width:70px}
+.color-presets{display:flex;gap:7px;flex-wrap:wrap}
+.color-swatch{width:25px;height:25px;border:1px solid #888;border-radius:7px;padding:0}
+.color-swatch:focus{outline:2px solid #fff;outline-offset:2px}
+:root{--boss-bg:#000}
+html,body{background-color:var(--boss-bg,#000)!important}
+.skeleton-preview{margin:12px 0;padding:14px;border:1px solid #333;border-radius:10px;background:#080808;text-align:center}.skeleton-preview svg{height:190px;width:140px;display:block;margin:auto}.aim-tabs{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}.aim-tabs .tab{min-width:0!important}
+</style></head><body>
+<div class="wrap">
+<header class="top"><div><div class="brand">BOSS HACK</div><div class="sub">VISUAL MENU</div></div><div class="avatar boss-mark" aria-label="BOSS">B</div></header>
+<section class="hero glass"><div class="eyebrow">STANDOFF 2</div><h1>Панель управления</h1><p>Персональное меню BOSS HACK</p></section>
+<nav class="tabs"><button class="tab active" data-tab="home">Главная</button><button class="tab" data-tab="esp">ESP</button><button class="tab" data-tab="aim">Аим</button><button class="tab" data-tab="skins">Скины</button><button class="tab" data-tab="misc">Misc</button><button class="tab" data-tab="visuals">Visuals Cheat</button><button class="tab" data-tab="settings">Настройки</button></nav>
+<main id="content"></main>
+<div class="footer">IOS 15-27 IPA CHEATS BOSS HACK V2</div>
+</div>
+<div class="overlay" id="overlay"><div class="modal glass"><h2 id="modalTitle">Настройки</h2><p id="modalText"></p><button class="action" id="closeModal">Закрыть</button></div></div><div class="toast" id="toast">Сохранено</div>
+<script>
+const defaults={compact:false,icons:true,lines:false,boxes:false,names:true,distance:false,circle:true,indicator:false,silentAim:false,aimBot:false,auroral:false,headAim:false,knife:false,gloves:false,weapon:false};
+let settings={...defaults,backgroundColor:'#000000'};try{settings={...settings,...JSON.parse(localStorage.getItem('bossHackSettings')||'{}')}}catch(e){}
+function applyBackground(color){if(!/^#[0-9a-fA-F]{6}$/.test(color))return;settings.backgroundColor=color;document.documentElement.style.setProperty('--boss-bg',color);save() }
+applyBackground(settings.backgroundColor);
+function save(){try{localStorage.setItem('bossHackSettings',JSON.stringify(settings))}catch(e){}}
+function row(id,label,desc){return `<div class="item"><div><div class="name">${label}</div><div class="desc">${desc}</div></div><label><input data-key="${id}" type="checkbox" ${settings[id]?'checked':''}><span class="switch"></span></label></div>`}
+function slider(id,label,min,max,val){return `<div class="item"><div><div class="name">${label}</div><div class="desc">Визуальная настройка</div></div><input class="range" data-range="${id}" type="range" min="${min}" max="${max}" value="${val}"><span class="value" id="v-${id}">${val}%</span></div>`}
+const views={
+home:`<section class="section glass"><div class="head"><div class="title">Быстрые настройки</div><span class="pill">MENU</span></div>${row('compact','Компактный режим','Уменьшенный вид панелей')}${row('icons','Тёмные иконки','Стиль элементов меню')}<div class="item"><div><div class="name">Цвет акцента</div><div class="desc">Изменить цвет кнопок</div></div><div class="colorrow"><input type="color" id="accent" value="#ffffff"></div></div><div class="item"><div><div class="name">Дополнительные настройки</div><div class="desc">Открыть окно параметров</div></div><button class="action" data-modal="Параметры|Это демонстрационное окно дополнительных визуальных параметров.">Открыть</button></div></section>
+<section class="section glass"><div class="head"><div class="title">Информация</div><span class="pill">BOSS</span></div><div class="item"><div><div class="name">Версия меню</div><div class="desc">6.0 · Visual Menu Edition</div></div><button class="action" data-modal="BOSS HACK|Визуальный макет меню. Элементы интерфейса не взаимодействуют с игрой.">О проекте</button></div></section>`,
+esp:`<section class="section glass"><div class="head"><div class="title">ESP</div><span class="pill">VISUAL DEMO</span></div><div class="esp-preview"><div class="esp-player"><span class="esp-player-label">PLAYER</span></div><div><div class="name">Модель Box</div><div class="desc">Предпросмотр рамки в макете</div><button class="action box-button" id="boxButton" type="button">Box</button></div></div>${row('lines','Линии','Декоративный элемент макета')}${row('boxes','Box','Переключатель рамки в макете')}${row('chams','Chams','Декоративная подсветка модели в предпросмотре')}${row('skeleton','Skeleton','Декоративный переключатель') }<div class="item"><div><div class="name">Модель скелета</div><div class="desc">Нажми кнопку, чтобы показать схему персонажа</div></div><button class="action" id="skeletonButton">Показать</button></div><div id="skeletonPreview" class="skeleton-preview" hidden><svg viewBox="0 0 180 250" role="img" aria-label="Схематичная модель скелета персонажа"><g fill="none" stroke="#f2f2f2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="90" cy="25" r="16"/><path d="M90 41 L90 112 M58 67 L90 55 L122 67 M58 67 L42 119 L34 164 M122 67 L138 119 L146 164 M90 112 L63 160 L55 222 M90 112 L117 160 L125 222 M72 83 L108 83 M77 112 L103 112"/></g><g fill="#aaa"><circle cx="90" cy="25" r="3"/><circle cx="58" cy="67" r="4"/><circle cx="122" cy="67" r="4"/><circle cx="90" cy="112" r="4"/><circle cx="63" cy="160" r="4"/><circle cx="117" cy="160" r="4"/></g></svg><div class="desc">Схематичная иллюстрация только для меню</div></div>${row('names','Имена','Декоративный переключатель')}${row('distance','Дистанция','Декоративный переключатель')}${slider('espSize','Размер элементов',0,100,50)}</section>`, 
+aim:`<section class="section glass"><div class="head"><div class="title">Aim</div><span class="pill">VISUAL DEMO</span></div><p class="desc">Три отдельные страницы настроек макета. Элементы не взаимодействуют с игрой.</p><div class="tabs aim-tabs" style="margin:10px 0"><button class="tab active" data-aim-page="aimbot">Aimbot</button><button class="tab" data-aim-page="trigger">Trigger Bot</button><button class="tab" data-aim-page="antiaim">Anti Aim</button></div><div id="aimPage"><div class="subsection"><div class="subsection-title">AIMBOT</div>${row('aimBot','Aimbot','Декоративный переключатель')}${row('silentAim','Silent Aim','Декоративный переключатель')}${row('headAim','Head Aim','Декоративный переключатель')}${slider('aimFov','FOV оформления',0,100,45)}${slider('aimSmooth','Плавность интерфейса',0,100,60)}</div></div></section>`,
+skins:`<section class="section glass"><div class="head"><div class="title">Каталог предметов</div><span class="pill">STANDOFF 2 STYLE</span></div><div class="tabs" style="margin:0 0 10px;grid-template-columns:1fr 1fr"><button class="tab active" data-filter="knives">Ножи</button><button class="tab" data-filter="gloves">Перчатки</button></div><div class="catalog" id="catalogGrid"></div><div class="selected-label" id="selectedItem">Выбери предмет из каталога</div></section>`,
+misc:`<section class="section glass"><div class="head"><div class="title">Дополнительное меню</div><span class="pill">EXTRA</span></div>${row('hitmarker','Маркер попадания','Декоративный переключатель')}${row('damageText','Текст урона','Декоративный переключатель')}${row('radarStyle','Стиль радара','Декоративный переключатель')}${row('soundUi','Звуки интерфейса','Декоративный переключатель')}${slider('menuScale','Масштаб меню',70,130,100)}</section>`,
+visuals:`<section class="section glass"><div class="head"><div class="title">Visuals Cheat</div><span class="pill">APPEARANCE</span></div><div class="item"><div><div class="name">Цвет фона</div><div class="desc">Выбери любой цвет для фона меню</div></div><div class="colorrow"><input type="color" id="backgroundColor" value="#000000" aria-label="Цвет фона меню"></div></div><div class="item"><div><div class="name">Быстрые цвета</div><div class="desc">Нажми, чтобы применить цвет</div></div><div class="color-presets"><button class="color-swatch" data-bg="#000000" aria-label="Чёрный" style="background:#000"></button><button class="color-swatch" data-bg="#172033" aria-label="Тёмно-синий" style="background:#172033"></button><button class="color-swatch" data-bg="#183126" aria-label="Тёмно-зелёный" style="background:#183126"></button><button class="color-swatch" data-bg="#351b25" aria-label="Тёмно-красный" style="background:#351b25"></button><button class="color-swatch" data-bg="#302044" aria-label="Тёмно-фиолетовый" style="background:#302044"></button></div></div><div class="item"><div><div class="name">Сбросить фон</div><div class="desc">Вернуть стандартный чёрный цвет</div></div><button class="action" id="resetBackground">Сброс</button></div><p class="desc" style="margin-top:10px">Настройка меняет только внешний вид этого меню и сохраняется на устройстве.</p></section>`,
+settings:`<section class="section glass"><div class="head"><div class="title">Настройки интерфейса</div><span class="pill">UI</span></div>${row('blur','Стеклянные панели','Эффект прозрачности макета')}${row('animations','Анимации меню','Плавное открытие вкладок')}${row('compact','Компактный режим','Уменьшить отступы')}${slider('panelOpacity','Прозрачность панелей',10,90,45)}<div class="item"><div><div class="name">Сбросить настройки</div><div class="desc">Вернуть исходный вид</div></div><button class="action" data-modal="Сброс настроек|Перезагрузи страницу, чтобы вернуться к исходному виду.">Сброс</button></div></section>`
+};
+const catalogItems={knives:[
+['Karambit · Gold','Karambit','✦','gold','https://standoff-case.lol/assets/items/72.webp'],
+['Karambit · Dragon Glass','Karambit','✦','blue','https://standoff-case.lol/assets/items/30.webp'],
+['Karambit · Frozen','Karambit','✦','blue','https://standoff-case.lol/assets/items/1168.webp'],
+['Kunai · Poison','Kunai','✦','green','https://standoff-case.lol/assets/items/253.webp'],
+['Butterfly · Cold Flame','Butterfly','✦','blue','https://standoff-case.lol/assets/items/1166.webp'],
+['Karambit · Year Of The Tiger','Karambit','✦','red','https://standoff-case.lol/assets/items/1259.webp'],
+['Butterfly · Dragon Glass','Butterfly','✦','purple','https://standoff-case.lol/assets/items/96.webp'],
+['Butterfly · Glitch','Butterfly','✦','purple','https://standoff-case.lol/assets/items/1319.webp'],
+['jKommando · Floral','jKommando','✦','pink','https://standoff-case.lol/assets/items/43.webp'],
+['Kunai · Bone','Kunai','✦','gold','https://standoff-case.lol/assets/items/242.webp'],
+['M9 Bayonet · Dragon Glass','M9 Bayonet','✦','blue','https://standoff-case.lol/assets/items/17.webp'],
+['Butterfly · Black Widow','Butterfly','✦','red','https://static.wikia.nocookie.net/standoff-2/images/7/7e/Butterfly_Black_Widow.png']
+],gloves:[['Gloves Punk','Gloves Punk','🧤','red',''],['Gloves Steam Rider','Gloves Steam Rider','🧤','blue',''],['Gloves Champions','Gloves Champions','🧤','gold',''],['Gloves Handcraft','Gloves Handcraft','🧤','purple',''],['Gloves Hanami','Gloves Hanami','🧤','pink','']]};
+function renderCatalog(filter){const grid=document.getElementById('catalogGrid');if(!grid)return;grid.innerHTML=catalogItems[filter].map(it=>`<button class="skin-card" data-item="${it[0]}"><div class="skin-art ${it[3]}"><span class="skin-fallback" aria-hidden="true">${filter==='knives'?'🔪':'🧤'}</span></div><div class="skin-name">${it[0]}</div><div class="skin-type">${it[1]}</div></button>`).join('');grid.querySelectorAll('[data-item]').forEach(card=>card.addEventListener('click',()=>{grid.querySelectorAll('.skin-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');document.getElementById('selectedItem').textContent='Выбрано: '+card.dataset.item;showToast()}));}
+function bindControls(){document.querySelectorAll('[data-key]').forEach(el=>el.addEventListener('change',()=>{settings[el.dataset.key]=el.checked;save();showToast()}));document.querySelectorAll('[data-range]').forEach(el=>el.addEventListener('input',()=>{const v=document.getElementById('v-'+el.dataset.range);if(v)v.textContent=el.value+'%';save()}))}
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1100)}
+function render(tab){document.getElementById('content').innerHTML=views[tab];if(tab==='aim'){const pages={aimbot:`<div class="subsection"><div class="subsection-title">AIMBOT</div>${row('aimBot','Aimbot','Декоративный переключатель')}${row('silentAim','Silent Aim','Декоративный переключатель')}${row('headAim','Head Aim','Декоративный переключатель')}${slider('aimFov','FOV оформления',0,100,45)}${slider('aimSmooth','Плавность интерфейса',0,100,60)}</div>`,trigger:`<div class="subsection"><div class="subsection-title">TRIGGER BOT</div>${row('triggerBot','Trigger Bot','Декоративный переключатель')}${row('triggerIndicator','Индикатор Trigger Bot','Только оформление меню')}</div>`,antiaim:`<div class="subsection"><div class="subsection-title">ANTI AIM</div>${row('antiAim','Anti Aim','Декоративный переключатель')}${row('antiAimIndicator','Индикатор Anti Aim','Только оформление меню')}${row('antiAimPreview','Предпросмотр режима','Декоративный переключатель')}</div>`};document.querySelectorAll('[data-aim-page]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-aim-page]').forEach(x=>x.classList.toggle('active',x===b));document.getElementById('aimPage').innerHTML=pages[b.dataset.aimPage];bindControls()}));}const boxButton=document.getElementById('boxButton');if(boxButton){boxButton.classList.toggle('active',!!settings.boxes);boxButton.addEventListener('click',()=>{settings.boxes=!settings.boxes;save();boxButton.classList.toggle('active',settings.boxes);const boxToggle=document.querySelector('[data-key=\"boxes\"]');if(boxToggle)boxToggle.checked=settings.boxes;showToast()})}const skeletonButton=document.getElementById('skeletonButton');if(skeletonButton){skeletonButton.addEventListener('click',()=>{const preview=document.getElementById('skeletonPreview');preview.hidden=!preview.hidden;skeletonButton.textContent=preview.hidden?'Показать':'Скрыть';showToast()})}if(tab==='skins'){renderCatalog('knives');document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderCatalog(b.dataset.filter)}));}bindControls();document.querySelectorAll('[data-modal]').forEach(el=>el.addEventListener('click',()=>{let [title,body]=el.dataset.modal.split('|');document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent=body;document.getElementById('overlay').classList.add('show')}));const ac=document.getElementById('accent');if(ac)ac.addEventListener('input',()=>{document.documentElement.style.setProperty('--line',ac.value+'99');document.querySelectorAll('.tab.active,.action.active').forEach(x=>x.style.background=ac.value+'cc');save()});const bg=document.getElementById('backgroundColor');if(bg){bg.value=settings.backgroundColor||'#000000';bg.addEventListener('input',()=>{applyBackground(bg.value);showToast()})}document.querySelectorAll('[data-bg]').forEach(b=>b.addEventListener('click',()=>{applyBackground(b.dataset.bg);if(bg)bg.value=b.dataset.bg;showToast()}));const resetBg=document.getElementById('resetBackground');if(resetBg)resetBg.addEventListener('click',()=>{applyBackground('#000000');if(bg)bg.value='#000000';showToast()})}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.tab)}));
+document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('overlay').classList.remove('show'));
+document.getElementById('overlay').addEventListener('click',e=>{if(e.target.id==='overlay')e.currentTarget.classList.remove('show')});
+render('home');
+</script></body></html>
