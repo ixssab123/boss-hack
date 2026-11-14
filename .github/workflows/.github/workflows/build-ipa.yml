@@ -7,7 +7,13 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Check files
+        run: |
+          ls -la
+          find . -maxdepth 3 -type f
 
       - name: Build app
         run: |
@@ -20,11 +26,12 @@ jobs:
 
       - name: Package IPA
         run: |
-          mkdir Payload
+          mkdir -p Payload
           cp -R build/Build/Products/Release-iphoneos/*.app Payload/
           zip -r BOSS-HACK.ipa Payload
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
         with:
           name: BOSS-HACK-IPA
           path: BOSS-HACK.ipa
